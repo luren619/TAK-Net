@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tak-net"
+version = "0.1.0"
+description = "Paired B-mode/CEUS carotid wall segmentation with TAK-Net"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+dependencies = [
+  "ml-collections==1.1.0",
+  "numpy==2.5.1",
+  "pillow==12.3.0",
+  "scikit-image==0.26.0",
+  "scipy==1.18.0",
+  "torch==2.6.0",
+  "torchvision==0.21.0",
+]
+
+[project.scripts]
+taknet-train = "taknet.cli.train:main"
+taknet-evaluate = "taknet.cli.evaluate:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
